@@ -1,9 +1,11 @@
-🐳 Docker Basics — Week 5 Practice
-DevOps Learning Journey | Berlin, Germany
+🐳 **Docker Basics — Week 5 Practice****
+DevOps Learning Journey | Berlin, Germany**
 This repository contains hands-on Docker practice work completed as part of a 3-month DevOps roadmap transitioning from Technical Support Engineer to Junior DevOps Engineer.
 
-📅 What I Practiced
-DayTopicStatusDay 29Install Docker, run first container, nginx✅ DoneDay 30Docker images, pull, build, Dockerfile, caching✅ DoneDay 31Containers — start, stop, logs, exec✅ Done
+**📅 What I Practiced**
+Install Docker, run first container, nginx✅ Done 
+Docker images, pull, build, Dockerfile, caching✅ Done
+Containers — start, stop, logs, exec✅ Done
 
 📁 Project Structure
 Docker-Practice/
@@ -14,23 +16,23 @@ Docker-Practice/
     ├── Dockerfile
     └── app.py
 
-🚀 Projects
-1. my-first-image
+**🚀 Projects
+1. my-first-image**
 A simple Python container that prints a custom message. Built to understand the core Docker workflow: write code → create Dockerfile → build image → run container.
-Build and run:
+**Build and run:**
 bashcd my-first-image
 docker build -t my-first-image .
 docker run my-first-image
-Expected output:
+**Expected output:**
 Hello from Saqib - Berlin DevOps Journey!
 
-2. system-info
+**2. system-info**
 A Python container that displays live system information from inside the container — OS, version, CPU architecture, Python version.
-Build and run:
+**Build and run:**
 bashcd system-info
 docker build -t system-info .
 docker run --name my-system system-info
-Expected output:
+**Expected output:**
 ========================================
    SYSTEM INFO - Docker Container
 ========================================
@@ -42,17 +44,17 @@ Python    : 3.11.14
 ========================================
 Developer : Saqib Ali Khan - Berlin
 ========================================
-Get inside the container:
+**Get inside the container:**
 bashdocker run -it --rm --name system-shell system-info bash
 
-📚 Key Concepts Learned
-Image vs Container
+**📚 Key Concepts Learned
+Image vs Container**
 IMAGE      = blueprint/template (stored on disk, read-only)
 CONTAINER  = running instance of an image (active, isolated)
 
 One image → many containers
 Deleting a container never deletes the image
-Dockerfile Instructions
+**Dockerfile Instructions**
 dockerfileFROM        # base image to start from
 WORKDIR     # set working directory inside container
 COPY        # copy files from host into container
@@ -60,7 +62,7 @@ RUN         # execute command during build
 ENV         # set environment variable
 EXPOSE      # document which port app listens on
 CMD         # default command when container starts
-Essential Commands
+**Essential Commands**
 bash# Images
 docker images                    # list all images
 docker pull nginx                # download image
@@ -69,7 +71,7 @@ docker rmi my-app                # remove image
 docker history nginx             # see image layers
 docker inspect nginx             # detailed image metadata
 
-# Containers
+**# Containers**
 docker run -d -p 8080:80 --name my-nginx nginx   # run container
 docker ps                        # list running containers
 docker ps -a                     # list all containers
@@ -81,39 +83,43 @@ docker logs -f my-nginx          # follow logs live
 docker exec -it my-nginx bash    # get inside running container
 docker stats                     # live resource usage
 
-# Cleanup
+**# Cleanup**
 docker container prune -f        # remove all stopped containers
 docker image prune -f            # remove dangling images
 docker system prune              # remove everything unused
-Docker Run Flags
+
+**Docker Run Flags**
 bash-d          # detached — run in background
 -p 8080:80  # port mapping HOST:CONTAINER
 --name      # give container a readable name (always use this!)
 -it         # interactive terminal (get inside container)
 --rm        # auto-remove container when it exits
-Layer Caching
+
+**Layer Caching**
 Docker caches each build layer. If a layer hasn't changed, it reuses the cache — making rebuilds faster.
-Best practice — order your Dockerfile correctly:
+
+**Best practice — order your Dockerfile correctly:**
 dockerfile# Things that change RARELY → put at TOP (cached more)
 COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Things that change OFTEN → put at BOTTOM (rebuilt more)
 COPY . .
-Exit Codes
+
+**Exit Codes**
 Exited (0)   → stopped successfully, no errors
 Exited (1)   → stopped with an error
 Exited (137) → container was forcefully killed
 
-🛠️ Environment
-
+**🛠️ Environment
+**
 OS: Windows 11 + WSL2 (Ubuntu 22.04)
 Docker: Version 28.2.2
 Setup: Docker Desktop with WSL2 backend integration
 Kernel: 6.6.87.2-microsoft-standard-WSL2
 
 
-📖 Resources
+**📖 Resources**
 
 TechWorld with Nana — Docker Full Course (YouTube)
 Official Docker Documentation
@@ -121,7 +127,7 @@ Play with Docker — Browser-based practice
 Docker Hub — Official images
 
 
-🗺️ Roadmap Progress
+**🗺️ Roadmap Progress**
 Month 1 — Linux, Bash, Git, Python     ✅ Complete
 Month 2 — Docker, CI/CD, Kubernetes    🔄 In Progress (Week 5)
 Month 3 — AWS, Monitoring, Job Prep    ⏳ Upcoming
