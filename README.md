@@ -5,15 +5,6 @@ This repository contains hands-on Docker practice work completed as part of a 3-
 
 ---
 
-## 📅 What I Practiced
-
-| Day | Topic | Status |
-|-----|-------|--------|
-| Day 29 | Install Docker, run first container, nginx | ✅ Done |
-| Day 30 | Docker images, pull, build, Dockerfile, caching | ✅ Done |
-| Day 31 | Containers — start, stop, logs, exec | ✅ Done |
-
----
 
 ## 📁 Project Structure
 
