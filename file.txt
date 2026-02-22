@@ -1,0 +1,35 @@
+# Run nginx in background with a proper name 
+docker run -d -p 8080:80 --name my-nginx nginx
+
+# 1. Confirm it's running
+docker ps
+
+# 2. Check its logs
+docker logs my-nginx
+
+# 3. Follow logs live — refresh http://localhost:8080 in browser while this runs
+docker logs -f my-nginx
+# Press Ctrl+C to stop following
+
+# 4. Get inside the running container
+docker exec -it my-nginx bash
+# You are now INSIDE nginx container
+# Try: ls, pwd, cat /etc/nginx/nginx.conf
+# Type exit when done
+
+# 5. Stop it
+docker stop my-nginx
+
+# 6. Confirm stopped
+docker ps -a
+
+# 7. Start it again
+docker start my-nginx
+
+# 8. Stop and remove it
+docker stop my-nginx
+docker rm my-nginx
+
+# 9. Confirm completely gone
+docker ps -a
+
