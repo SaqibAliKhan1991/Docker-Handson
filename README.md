@@ -169,15 +169,6 @@ Exited (137) → container was forcefully killed
 - [Docker Hub — Official images](https://hub.docker.com)
 
 ---
-
-## 🗺️ Roadmap Progress
-
-```
-Month 1 — Linux, Bash, Git, Python     ✅ Complete
-Month 2 — Docker, CI/CD, Kubernetes    🔄 In Progress (Week 5)
-Month 3 — AWS, Monitoring, Job Prep    ⏳ Upcoming
-```
-
 ---
 
 *Part of a 3-month DevOps roadmap — Technical Support Engineer → Junior DevOps Engineer*
