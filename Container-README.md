@@ -176,17 +176,3 @@ If PID 1 dies → entire container stops
 That's why nginx runs with "daemon off;"
 ```
 
----
-
-## 🛠️ Environment
-
-- **OS:** Windows 11 + WSL2 (Ubuntu 22.04)
-- **Docker:** Version 28.2.2
-- **Kernel:** 6.6.87.2-microsoft-standard-WSL2
-
----
-
-## 🗺️ Roadmap Progress
-
-```
-
