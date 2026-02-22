@@ -1,4 +1,4 @@
-# 🐳 Day 31 — Docker Containers
+# 🐳 Docker Containers
 ### Start, Stop, Logs, Exec and Container Management
 
 ---
