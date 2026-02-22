@@ -1,4 +1,4 @@
-# 🐳 Docker Basics — Week 5 Practice
+# 🐳 Docker Basics
 ### DevOps Learning Journey | Berlin, Germany
 
 This repository contains hands-on Docker practice work completed as part of a 3-month DevOps roadmap transitioning from Technical Support Engineer to Junior DevOps Engineer.
