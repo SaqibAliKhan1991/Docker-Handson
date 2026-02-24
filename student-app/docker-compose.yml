@@ -14,6 +14,7 @@ services:
 
   student-app:
     build: .
+    image: student-app
     container_name: student-app
     ports:
       - "5000:5000"
