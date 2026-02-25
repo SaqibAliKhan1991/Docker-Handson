@@ -13,8 +13,8 @@ services:
       - student-network
 
   student-app:
-    build: .
-    image: student-app
+    image: saqib321/student-app:latest
+    pull_policy: always
     container_name: student-app
     ports:
       - "5000:5000"
