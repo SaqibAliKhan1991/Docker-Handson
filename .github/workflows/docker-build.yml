@@ -24,3 +24,5 @@ jobs:
 
       - name: Push to Docker Hub
         run: docker push saqib321/student-app:latest
+- name: Pipeline complete
+        run: echo 'Image saqib321/student-app:latest pushed successfully!'
