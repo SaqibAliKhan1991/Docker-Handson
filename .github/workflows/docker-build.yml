@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t saqib321/student-app:latest ./wrong-folder
+        run: docker build -t saqib321/student-app:latest ./student-app
 
       - name: Push to Docker Hub
         run: docker push saqib321/student-app:latest
