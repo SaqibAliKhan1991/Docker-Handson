@@ -72,7 +72,7 @@ def register():
 
 @app.route('/health')
 def health():
-    return {'status': 'ok', 'message': 'Updated by CI/CD pipeline!'}
+    return {'status': 'ok', 'message': 'Practice 1 by Saqib!'}
 
 if __name__ == '__main__':
     init_db()
