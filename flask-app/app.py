@@ -8,7 +8,7 @@ def home():
 
 @app.route('/health')
 def health():
-    return {'status': 'ok'}
+    return {'status': 'ok', 'success'}
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
