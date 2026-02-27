@@ -1,4 +1,6 @@
-
+![Build and Push Docker Image](https://github.com/SaqibAliKhan1991/Docker-Handson/actions/workflows/docker-build.yml/badge.svg)
+![Flask App CI/CD](https://github.com/SaqibAliKhan1991/Docker-Handson/actions/workflows/flask-app.yml/badge.svg)
+![DevOps Scripts CI/CD](https://github.com/SaqibAliKhan1991/Docker-Handson/actions/workflows/devops-scripts.yml/badge.svg)
 ### Build a Real Python Flask Web Application with Docker
 
 ---
