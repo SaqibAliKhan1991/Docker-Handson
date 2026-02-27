@@ -281,3 +281,4 @@ docker push saqib321/devops-scripts:v1.0
 # Anyone can now run your scripts with:
 docker run saqib321/devops-scripts:v1.0
 ```
+# pipeline added

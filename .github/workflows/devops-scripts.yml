@@ -1,0 +1,41 @@
+name: DevOps Scripts CI/CD
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'devops-scripts/**'
+
+jobs:
+  build-test-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build image
+        run: docker build -t saqib321/devops-scripts:latest ./devops-scripts
+
+      - name: Test monitor script
+        run: |
+          docker run --rm saqib321/devops-scripts:latest
+          echo 'Monitor script passed!'
+
+      - name: Test disk usage script
+        run: |
+          docker run --rm saqib321/devops-scripts:latest python scripts/disk_usage.py
+          echo 'Disk usage script passed!'
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push to Docker Hub
+        run: docker push saqib321/devops-scripts:latest
+
+      - name: Pipeline complete
+        run: echo 'DevOps scripts tested and pushed successfully!'
