@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-app
+  template:
+    metadata:
+      labels:
+        app: student-app
+    spec:
+      containers:
+      - name: student-app
+        image: saqib321/student-app:latest
+        env:
+        - name: DB_HOST
+          value: "postgres-db"
+        - name: DB_USER
+          value: "admin"
+        - name: DB_PASSWORD
+          value: "secret"
+        - name: DB_NAME
+          value: "mydb"
+        ports:
+        - containerPort: 5000
