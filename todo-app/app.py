@@ -51,7 +51,7 @@ HTML = '''
     </style>
 </head>
 <body>
-    <h1>Todo App</h1>
+    <h1>Todo App v2</h1>
     <form method="POST" action="/add">
         <input type="text" name="task" placeholder="Enter a todo..." required>
         <button type="submit">Add</button>
