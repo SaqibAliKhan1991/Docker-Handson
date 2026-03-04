@@ -1,0 +1,107 @@
+============================================
+Kubernetes Commands Cheat Sheet
+DevOps Roadmap | Berlin
+============================================
+============================================
+MINIKUBE COMMANDS
+============================================
+minikube start                                    # Start cluster
+minikube stop                                     # Stop cluster
+minikube status                                   # Check cluster status
+minikube delete                                   # Delete everything
+minikube service <service-name> --url             # Get app URL
+minikube service <service-name>                   # Open app in browser
+============================================
+POD COMMANDS
+============================================
+kubectl get pods                                  # List all pods
+kubectl get pods -o wide                          # List pods with IP and Node
+kubectl get pods --watch                          # Watch pods in real time
+kubectl describe pod <pod-name>                   # Full details of a pod
+kubectl logs <pod-name>                           # See pod logs
+kubectl logs <pod-name> -f                        # Follow logs in real time
+kubectl logs <pod-name> --tail=50                 # See last 50 lines of logs
+kubectl delete pod <pod-name>                     # Delete a pod
+kubectl exec -it <pod-name> -- /bin/bash          # Go inside a pod terminal
+============================================
+DEPLOYMENT COMMANDS
+============================================
+kubectl get deployments                           # List all deployments
+kubectl describe deployment <name>                # Full details of deployment
+kubectl scale deployment <name> --replicas=3      # Scale up or down
+kubectl set image deployment/<name> <container>=<image>  # Rolling update
+kubectl rollout status deployment/<name>          # Check update status
+kubectl rollout undo deployment/<name>            # Rollback to previous version
+kubectl rollout history deployment/<name>         # See rollout history
+kubectl delete deployment <name>                  # Delete a deployment
+============================================
+SERVICE COMMANDS
+============================================
+kubectl get services                              # List all services
+kubectl describe service <name>                   # Full details of service
+kubectl delete service <name>                     # Delete a service
+============================================
+YAML FILE COMMANDS
+============================================
+kubectl apply -f .                                # Apply all YAML files in folder
+kubectl apply -f deployment.yml                   # Apply specific file
+kubectl delete -f .                               # Delete everything in folder
+kubectl delete -f deployment.yml                  # Delete specific file
+kubectl get all                                   # Show all resources
+============================================
+NODE COMMANDS
+============================================
+kubectl get nodes                                 # List all nodes
+kubectl describe node <node-name>                 # Full details of node
+============================================
+DATABASE COMMANDS
+============================================
+Connect to PostgreSQL inside Pod
+-U value = POSTGRES_USER in postgres-deployment.yml
+-d value = POSTGRES_DB in postgres-deployment.yml
+kubectl exec -it <postgres-pod-name> -- psql -U admin -d <dbname>
+Inside PostgreSQL:
+SELECT * FROM <table-name>;     → see all data
+\dt                             → list all tables
+\q                              → exit
+============================================
+DAILY WORKFLOW
+============================================
+Morning — start everything
+minikube start
+kubectl apply -f ~/Docker-Practice/kubernetes
+minikube service student-app-service --url
+Evening — stop everything
+minikube stop
+Delete everything
+kubectl delete -f .
+============================================
+DEBUGGING WORKFLOW
+============================================
+Step 1 — check pod status
+kubectl get pods
+Step 2 — if pod is crashing check logs
+kubectl logs <pod-name>
+Step 3 — check full details
+kubectl describe pod <pod-name>
+Step 4 — rollback if bad update
+kubectl rollout undo deployment/<name>
+============================================
+SCALING EXAMPLES
+============================================
+kubectl scale deployment todo-app --replicas=3    # Scale up
+kubectl scale deployment todo-app --replicas=1    # Scale down
+kubectl scale deployment todo-app --replicas=0    # Stop without deleting
+============================================
+ROLLING UPDATE EXAMPLE
+============================================
+kubectl set image deployment/todo-app todo-app=saqib321/todo-app:v2
+kubectl rollout status deployment/todo-app
+kubectl rollout undo deployment/todo-app
+============================================
+COMMON ERRORS AND FIXES
+============================================
+CrashLoopBackOff  → kubectl logs <pod-name>
+ImagePullBackOff  → wrong image name in YAML
+Pending           → kubectl describe pod <pod-name>
+Connection refused→ minikube not running, run minikube start
