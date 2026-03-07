@@ -57,7 +57,7 @@ HTML = '''
         <button type="submit">Add</button>
     </form>
     <br>
-    <h3>Todo List:</h3>
+    <h3>All Todo List:</h3>
     <ul>
         {% for todo in todos %}
         <li>
