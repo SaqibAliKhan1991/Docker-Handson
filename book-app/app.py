@@ -52,7 +52,7 @@ HTML = '''
     </style>
 </head>
 <body>
-    <h1>📚 Book Library</h1>
+    <h1>📚 Book Library v2</h1>
     <form method="POST" action="/add">
         <input type="text" name="title" placeholder="Book title..." required>
         <input type="text" name="author" placeholder="Author name..." required>
