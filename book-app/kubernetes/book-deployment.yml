@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book-app
+  template:
+    metadata:
+      labels:
+        app: book-app
+    spec:
+      containers:
+      - name: book-app
+        image: saqib321/book-app:latest
+        env:
+        - name: DB_HOST
+          value: "postgres-db"
+        - name: DB_USER
+          value: "admin"
+        - name: DB_PASSWORD
+          value: "secret"
+        - name: DB_NAME
+          value: "bookdb"
+        ports:
+        - containerPort: 5000
