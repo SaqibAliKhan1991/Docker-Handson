@@ -1,3 +1,7 @@
+![Build and Push Docker Image](https://github.com/SaqibAliKhan1991/Docker-Handson/actions/workflows/docker-build.yml/badge.svg)
+![Flask App CI/CD](https://github.com/SaqibAliKhan1991/Docker-Handson/actions/workflows/flask-app.yml/badge.svg)
+![DevOps Scripts CI/CD](https://github.com/SaqibAliKhan1991/Docker-Handson/actions/workflows/devops-scripts.yml/badge.svg)
+
 # 📚 Book Library App — Kubernetes Deployment
 
 A simple Book Library web application built with Flask and PostgreSQL, deployed on Kubernetes. Built as a practice project to learn Kubernetes YAML files from scratch.
