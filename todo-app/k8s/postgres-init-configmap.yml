@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-script
+data:
+  init.sql: |
+    SELECT 'CREATE DATABASE tododb' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'tododb')\gexec
+    SELECT 'CREATE DATABASE bookdb' WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'bookdb')\gexec
