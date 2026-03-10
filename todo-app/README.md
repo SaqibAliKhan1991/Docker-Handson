@@ -246,6 +246,57 @@ kubectl exec -it <postgres-pod-name> -- psql -U admin -d tododb
 
 ---
 
+## 🗂️ ConfigMap & Secret Commands
+
+### ConfigMap
+
+ConfigMaps store **non-sensitive** config like hostnames, usernames, and database names. They are injected into pods as environment variables.
+
+```bash
+# List all ConfigMaps
+kubectl get configmaps
+
+# See what's inside a ConfigMap
+kubectl describe configmap todo-app-config
+
+# See the postgres init script
+kubectl describe configmap postgres-init-script
+```
+
+### Secret
+
+Secrets store **sensitive data** like passwords. Kubernetes hides the value and stores it base64 encoded.
+
+```bash
+# List all Secrets
+kubectl get secrets
+
+# Describe a secret (value is hidden, shows size only)
+kubectl describe secret todo-app-secret
+
+# Decode a single secret value
+kubectl get secret todo-app-secret -o jsonpath='{.data.DB_PASSWORD}' | base64 --decode && echo
+
+# Decode all fields in a secret (returns raw base64 JSON)
+kubectl get secret todo-app-secret -o jsonpath='{.data}' && echo
+
+# Verify what env vars a running pod actually receives
+kubectl exec -it <pod-name> -- env | grep DB
+```
+
+### ConfigMap vs Secret
+
+| | ConfigMap | Secret |
+|---|---|---|
+| Use for | Non-sensitive config | Passwords, tokens, keys |
+| Storage | Plain text | Base64 encoded |
+| Example | DB_HOST, DB_NAME, DB_USER | DB_PASSWORD, API_KEY |
+| Visible in describe | ✅ Yes | ❌ Hidden |
+
+> ⚠️ Base64 is **not encryption** — it is just encoding. For production, use tools like **Vault** or **Sealed Secrets** for real security.
+
+---
+
 ## ⚠️ Important Notes
 
 - URL changes every Minikube restart — always run: `minikube service todo-service --url`
