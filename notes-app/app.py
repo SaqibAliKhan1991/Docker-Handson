@@ -51,7 +51,7 @@ HTML = '''
     </style>
 </head>
 <body>
-    <h1>📝 Notes App v2 v2</h1>
+    <h1>📝 Notes App v2 v2 v2</h1>
     <input type="text" id="title" placeholder="Note title..." />
     <textarea id="content" rows="3" placeholder="Note content..."></textarea>
     <button onclick="addNote()">Add Note</button>
