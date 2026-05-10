@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: notes-app
-  namespace: development
 spec:
   replicas: 2
   selector:
